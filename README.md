@@ -8,4 +8,7 @@ some considerations:
 
 3. The logic to retrieve the query params (lat, lon) is in the page level. Default position is Rome.
 
+You can see directly the example:
+https://9em28.csb.app/
+
 Mirko Tafuri
