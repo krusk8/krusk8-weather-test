@@ -1,0 +1,54 @@
+.WeatherItem {
+  box-sizing: border-box;
+  height: 140px;
+  max-width: 95px;
+  min-width: 89px;
+  margin-left: auto;
+  margin-right: auto;
+  &.selected {
+    border: 1px solid #C69887;
+    border-radius: 12px;
+    background-color: rgba(247,248,250,0.18);
+    background-color: rgba(247,248,250,0.18);
+  }
+  .wheater-day{
+    justify-content: center;
+    margin: 12px 18px;
+    position: relative;
+   
+    .day {
+      position: absolute;
+      height: 19px;
+      width: 57px;
+      color: #FFFFFF;
+      font-family: "Open Sans";
+      font-size: 14px;
+      letter-spacing: 0;
+      line-height: 19px;
+      text-align: center;
+      padding: 0px 0px 96px 0px;
+    }
+    .weather {
+      position: absolute;
+      height: 42px;
+      width: 54px;
+      padding: 35px 0px 35px 0px;
+      text-align: center;
+    }
+    .temperature{
+      padding: 96px 5px 0px 5px;
+      position: absolute;
+      height: 19px;
+      width: 48px;
+      font-family: "Open Sans";
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 0;
+      line-height: 19px;
+      text-align: center;
+      color: #FFFFFF;
+      white-space: nowrap;
+    }
+  }
+
+}

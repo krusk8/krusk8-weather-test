@@ -1,0 +1,28 @@
+
+.WeatherPage{
+  background-image: url("Bitmap.png");
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bitmap {
+  margin-left: auto;
+  margin-right: auto;
+   /* Full height */
+   height: 100%;
+   opacity: 1;
+  }
+.divider {
+  box-sizing: border-box;
+  height: 1px;
+  width: 65%;
+  border: 2px solid #FFFFFF;
+  opacity: 0.18;
+  margin-bottom: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  @media only screen and (max-width: 1200px) {
+    width: 90%;
+  }
+}

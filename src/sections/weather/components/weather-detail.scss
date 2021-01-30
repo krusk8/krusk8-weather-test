@@ -1,0 +1,65 @@
+.WeatherDetail {
+  text-align: center;
+  .top-content {
+    width: 144px;
+    margin-left: auto;    
+    margin-right: auto;
+    margin-bottom: 28px;
+    padding-top: 24px;
+    .location {
+      display: flex;
+
+      .placeholder {
+        height: 23px;
+        width: 23px;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+      .city {
+        color: #FFFFFF;
+        font-size: 39.93px;
+        padding-left: 5px;
+      }
+
+    }
+
+    .weahter-icon {
+      margin-top:24px;
+      margin-bottom:8px;
+      img{
+        height: 132px;
+        width: 144px;  
+      }
+    }
+
+    .temperature {
+      color: #FFFFFF;
+      font-size: 55px;
+    }
+    .other-data {
+      margin-top: 8px;
+      .feels-like {
+        white-space: nowrap;
+       
+        color: #FFFFFF;
+        font-size: 18px;
+        font-weight: 300;
+        letter-spacing: 0;
+        line-height: 24px;
+        margin-bottom: 7px;
+      }
+      .humidity {
+        white-space: nowrap;
+       
+        color: #FFFFFF;
+        font-family: "Open Sans";
+        font-size: 18px;
+        font-weight: 300;
+        letter-spacing: 0;
+        line-height: 24px;
+        text-align: center;
+      }
+    }
+  }
+
+}
