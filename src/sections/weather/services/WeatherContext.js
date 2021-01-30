@@ -3,6 +3,7 @@ import RAIN from "../../../assets/image/Rain.svg";
 import CLOUD from "../../../assets/image/Cloud.svg";
 import SNOW from "../../../assets/image/Snow.svg";
 import SUN from "../../../assets/image/Sun.svg";
+import { API_CONFIG } from "./weather-const";
 
 const defaultState = {
   loading: true,
@@ -13,7 +14,7 @@ const defaultState = {
 
 const WeatherContext = React.createContext(defaultState);
 
-//Free API only pass the single info of Today
+//Free Plan API only pass the single info of Today
 const fakeResponseList = function (firstElement) {
   let list = [];
   list.push(firstElement);
@@ -45,7 +46,6 @@ class WeatherProvider extends Component {
     selectedIndex: 0,
     error: null,
     updateSelected: (currentIndex) => {
-      console.log("Clicked " + currentIndex);
       this.setState((state) => {
         return {
           ...state,
@@ -82,18 +82,15 @@ class WeatherProvider extends Component {
   }
 
   getWeather = async () => {
-    let latitude = "41.902782";
-    let longitude = "12.496366";
+    let latitude = API_CONFIG.DEFAULT_LAT;
+    let longitude = API_CONFIG.DEFAULT_LON;
 
     if (this.props.lat && this.props.lon) {
       latitude = this.props.lat;
       longitude = this.props.lon;
     }
 
-    //TODO externalize the consts
-    const API_current = "https://api.weatherbit.io/v2.0/current";
-    const API_key = "c7659783fd4849b5a596a262114bdf68";
-    const API_url = `${API_current}?lat=${latitude}&lon=${longitude}&key=${API_key}`;
+    const API_url = `${API_CONFIG.ENDPOINT_CURRENT}?lat=${latitude}&lon=${longitude}&key=${API_CONFIG.KEY}`;
 
     const res = await fetch(API_url, {
       headers: {
