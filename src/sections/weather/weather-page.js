@@ -37,7 +37,7 @@ class WeatherPage extends Component {
                   <WeatherDetail
                     cityName={weatherList[selectedIndex].city_name}
                     temp={weatherList[selectedIndex].temp}
-                    tempFeel={weatherList[selectedIndex].app_temp}
+                    tempFeel={weatherList[selectedIndex].app_min_temp}
                     humidity={weatherList[selectedIndex].rh}
                     icon={getIcon(weatherList[selectedIndex].weather.code)}
                   />

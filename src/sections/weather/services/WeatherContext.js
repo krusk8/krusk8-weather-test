@@ -14,31 +14,6 @@ const defaultState = {
 
 const WeatherContext = React.createContext(defaultState);
 
-//Free Plan API only pass the single info of Today
-const fakeResponseList = function (firstElement) {
-  let list = [];
-  list.push(firstElement);
-  const currentDate = new Date(firstElement.ob_time);
-  const listIconFake = [300, 800, 200, 900];
-  for (let i = 0; i < 6; i++) {
-    const modifiedDate = new Date(firstElement.ob_time).setDate(
-      currentDate.getDate() + i + 1
-    );
-    const updatedObj = {
-      ...firstElement,
-      ob_time: modifiedDate,
-      temp: firstElement.temp + i,
-      app_temp: firstElement.app_temp + i,
-      rh: firstElement.rh + i,
-      weather: {
-        ...firstElement.weather,
-        code: listIconFake[Math.floor(Math.random() * listIconFake.length)]
-      }
-    };
-    list.push(updatedObj);
-  }
-  return list;
-};
 class WeatherProvider extends Component {
   state = {
     loading: true,
@@ -90,7 +65,7 @@ class WeatherProvider extends Component {
       longitude = this.props.lon;
     }
 
-    const API_url = `${API_CONFIG.ENDPOINT_CURRENT}?lat=${latitude}&lon=${longitude}&key=${API_CONFIG.KEY}`;
+    const API_url = `${API_CONFIG.ENDPOINT_DAILY}?lat=${latitude}&lon=${longitude}&key=${API_CONFIG.KEY}`;
 
     const res = await fetch(API_url, {
       headers: {
@@ -102,7 +77,7 @@ class WeatherProvider extends Component {
       this.setState((state) => {
         return {
           ...state,
-          weatherList: fakeResponseList(response.data[0]),
+          weatherList: response.data.slice(0, 7),
           loading: false
         };
       });

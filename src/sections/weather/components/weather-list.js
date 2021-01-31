@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import WeatherItem from "./weather-item";
 import "./weather-list.scss";
-const getTemperature = function (temp) {
-  return `${Math.round(temp)}° - ${Math.round(temp - 6)}°`;
+const getTemperature = function (max_temp, min_temp) {
+  return `${Math.round(max_temp)}° - ${Math.round(min_temp)}°`;
 };
 
 class WeatherList extends Component {
@@ -19,9 +19,9 @@ class WeatherList extends Component {
               className="card"
             >
               <WeatherItem
-                singleDate={item.ob_time}
+                singleDate={item.valid_date}
                 icon={this.props.resolveIcon(item.weather.code)}
-                temperature={getTemperature(item.temp)}
+                temperature={getTemperature(item.max_temp, item.min_temp)}
                 currentIndex={index}
                 isSelected={index === this.props.selectedIndex}
               ></WeatherItem>
