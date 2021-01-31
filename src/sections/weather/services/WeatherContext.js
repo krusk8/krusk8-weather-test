@@ -8,6 +8,7 @@ import { API_CONFIG } from "./weather-const";
 const defaultState = {
   loading: true,
   weatherList: [],
+  city_name: null,
   selectedIndex: 0,
   error: null
 };
@@ -18,6 +19,7 @@ class WeatherProvider extends Component {
   state = {
     loading: true,
     weatherList: [],
+    city_name: null,
     selectedIndex: 0,
     error: null,
     updateSelected: (currentIndex) => {
@@ -78,6 +80,7 @@ class WeatherProvider extends Component {
         return {
           ...state,
           weatherList: response.data.slice(0, 7),
+          city_name: response.city_name,
           loading: false
         };
       });
@@ -91,6 +94,7 @@ class WeatherProvider extends Component {
       weatherList,
       selectedIndex,
       error,
+      city_name,
       updateSelected,
       getIcon
     } = this.state;
@@ -99,6 +103,7 @@ class WeatherProvider extends Component {
         value={{
           loading,
           error,
+          city_name,
           weatherList,
           selectedIndex,
           updateSelected,

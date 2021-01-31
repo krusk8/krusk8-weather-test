@@ -23,6 +23,7 @@ class WeatherPage extends Component {
         <WeatherContext.Consumer>
           {({
             weatherList,
+            city_name,
             loading,
             selectedIndex,
             getIcon,
@@ -35,7 +36,7 @@ class WeatherPage extends Component {
               <div className="WeatherPage">
                 <div className="bitmap">
                   <WeatherDetail
-                    cityName={weatherList[selectedIndex].city_name}
+                    cityName={city_name}
                     temp={weatherList[selectedIndex].temp}
                     tempFeel={weatherList[selectedIndex].app_min_temp}
                     humidity={weatherList[selectedIndex].rh}
